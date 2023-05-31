@@ -259,6 +259,21 @@ const navigation = (): HorizontalNavItemsType => {
       title: 'Calender',
       children: [
         {
+          title: 'Teklifler',
+          icon: 'tabler:chart-sankey',
+          path: '/charts/apex-charts'
+        },
+        {
+          title: 'Önümüzdeki Sayımlar',
+          icon: 'tabler:chart-ppf',
+          path: '/charts/recharts'
+        },
+        {
+          title: 'ChartJS',
+          path: '/charts/chartjs',
+          icon: 'tabler:chart-line'
+        },
+        {
           title: 'User Profile',
           icon: 'tabler:user-circle',
           children: [
@@ -570,27 +585,6 @@ const navigation = (): HorizontalNavItemsType => {
           title: 'Mui DataGrid',
           icon: 'tabler:layout-grid',
           path: '/tables/data-grid'
-        }
-      ]
-    },
-    {
-      title: 'Charts',
-      icon: 'tabler:chart-pie',
-      children: [
-        {
-          title: 'Apex',
-          icon: 'tabler:chart-sankey',
-          path: '/charts/apex-charts'
-        },
-        {
-          title: 'Recharts',
-          icon: 'tabler:chart-ppf',
-          path: '/charts/recharts'
-        },
-        {
-          title: 'ChartJS',
-          path: '/charts/chartjs',
-          icon: 'tabler:chart-line'
         }
       ]
     },
