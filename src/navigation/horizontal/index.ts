@@ -14,8 +14,18 @@ const navigation = (): HorizontalNavItemsType => {
         },
         {
           icon: 'tabler:device-analytics',
+          title: 'Dasher',
+          path: '/dashboards/Dasher'
+        },
+        {
+          icon: 'tabler:device-analytics',
           title: 'CRM',
           path: '/dashboards/crm'
+        },
+        {
+          icon: 'tabler:layout-grid',
+          title: 'PowerBi',
+          path: '/dashboards/PowerBi'
         },
         {
           icon: 'tabler:shopping-cart',
@@ -26,7 +36,7 @@ const navigation = (): HorizontalNavItemsType => {
     },
     {
       icon: 'tabler:layout-grid-add',
-      title: 'Apps',
+      title: 'Orders',
       children: [
         {
           title: 'Email',
@@ -118,7 +128,7 @@ const navigation = (): HorizontalNavItemsType => {
     },
     {
       icon: 'tabler:color-swatch',
-      title: 'UI',
+      title: 'B2b Analytics',
       children: [
         {
           title: 'Typography',
@@ -131,7 +141,6 @@ const navigation = (): HorizontalNavItemsType => {
           icon: 'tabler:brand-tabler'
         },
         {
-          
           title: 'Cards',
           icon: 'tabler:id',
           children: [
@@ -240,14 +249,14 @@ const navigation = (): HorizontalNavItemsType => {
             {
               title: 'More',
               path: '/components/more'
-            },
+            }
           ]
         }
       ]
     },
     {
-      icon: 'tabler:file',
-      title: 'Pages',
+      icon: 'tabler:calender',
+      title: 'Calender',
       children: [
         {
           title: 'User Profile',
@@ -476,7 +485,7 @@ const navigation = (): HorizontalNavItemsType => {
       ]
     },
     {
-      title: 'Forms & Tables',
+      title: 'Help Desk',
       icon: 'tabler:checkbox',
       children: [
         {
@@ -534,7 +543,7 @@ const navigation = (): HorizontalNavItemsType => {
             {
               title: 'Input Mask',
               path: '/forms/form-elements/input-mask'
-            },
+            }
           ]
         },
         {

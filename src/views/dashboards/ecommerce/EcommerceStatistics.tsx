@@ -25,26 +25,26 @@ interface DataType {
 const data: DataType[] = [
   {
     stats: '230k',
-    title: 'Sales',
+    title: 'Toplam Ürün',
     color: 'primary',
     icon: 'tabler:chart-pie-2'
   },
   {
     color: 'info',
     stats: '8.549k',
-    title: 'Customers',
+    title: 'Tekil Ürün',
     icon: 'tabler:users'
   },
   {
     color: 'error',
     stats: '1.423k',
-    title: 'Products',
+    title: 'Raf',
     icon: 'tabler:shopping-cart'
   },
   {
     stats: '$9745',
     color: 'success',
-    title: 'Revenue',
+    title: 'Lokasyon',
     icon: 'tabler:currency-dollar'
   }
 ]
@@ -65,7 +65,23 @@ const renderStats = () => {
   ))
 }
 
-const EcommerceStatistics = () => {
+const EcommerceStatistics = ({ datas }) => {
+  if (datas) {
+    const urunSayisi = datas.length
+    const rafSayisi = new Set(datas.map(d => d[1])).size
+    const lokasyonSay = new Set(datas.map(d => d[0])).size
+    const toplamUrun = datas.map(d => parseFloat(d[18]) || 0).reduce((d, t) => t + d, 0)
+    data[0].stats = toplamUrun
+    data[1].stats = urunSayisi
+    data[2].stats = rafSayisi
+    data[3].stats = lokasyonSay
+  } else {
+    data[0].stats = 'Loading'
+    data[1].stats = 'Loading'
+    data[2].stats = 'Loading'
+    data[3].stats = 'Loading'
+  }
+
   return (
     <Card>
       <CardHeader
@@ -73,7 +89,7 @@ const EcommerceStatistics = () => {
         sx={{ '& .MuiCardHeader-action': { m: 0, alignSelf: 'center' } }}
         action={
           <Typography variant='body2' sx={{ color: 'text.disabled' }}>
-            Updated 1 month ago
+            Updated 12 minutes ago
           </Typography>
         }
       />

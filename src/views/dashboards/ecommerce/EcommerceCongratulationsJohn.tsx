@@ -4,6 +4,7 @@ import Button from '@mui/material/Button'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 
 const Illustration = styled('img')(({ theme }) => ({
   right: 20,
@@ -15,7 +16,7 @@ const Illustration = styled('img')(({ theme }) => ({
   }
 }))
 
-const EcommerceCongratulationsJohn = () => {
+const EcommerceCongratulationsJohn = ({ selector }) => {
   return (
     <Card sx={{ position: 'relative' }}>
       <CardContent>
@@ -26,7 +27,15 @@ const EcommerceCongratulationsJohn = () => {
         <Typography variant='h4' sx={{ mb: 0.75, color: 'primary.main' }}>
           $48.9k
         </Typography>
-        <Button variant='contained'>View Sales</Button>
+        <FormControl>
+          <InputLabel id='report-selection'>Report</InputLabel>
+          <Select labelId='report-selection' onChange={e => selector(e.target.value)}>
+            <MenuItem></MenuItem>
+            <MenuItem value='1'>2023 - May Adana</MenuItem>
+            <MenuItem value='2'>2023 - May Antalya</MenuItem>
+            <MenuItem value='3'>2023 - May Bursa</MenuItem>
+          </Select>
+        </FormControl>
         <Illustration width={116} alt='congratulations john' src='/images/cards/congratulations-john.png' />
       </CardContent>
     </Card>
