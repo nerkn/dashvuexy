@@ -14,6 +14,7 @@ import EcommerceGeneratedLeads from 'src/views/dashboards/ecommerce/EcommerceGen
 import EcommercePopularProducts from 'src/views/dashboards/ecommerce/EcommercePopularProducts'
 import EcommerceCongratulationsJohn from 'src/views/dashboards/ecommerce/EcommerceCongratulationsJohn'
 import BarChart from 'src/views/dashboards/Dasher/BarChart'
+import DasherGrid from 'src/views/table/data-grid/Dasher';
 
 // ** Custom Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
@@ -83,10 +84,19 @@ const EcommerceDashboard = () => {
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
-          <BarChart data={datas} first={15} second={17} title='Colors' height={600} limit={30} color='86b7f5' />
+          <BarChart data={datas} first={18} second={17} title='Colors' height={600} limit={30} color='86b7f5' />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
-          <BarChart data={datas} first={10} second={17} title='Markalar' height={600} limit={30} color='9cf586' />
+          <BarChart data={datas} first={10} second={17} title='Brands' height={600} limit={30} color='9cf586' />
+        </Grid>
+        <Grid item xs={12} md={12} lg={12}>
+          <DasherGrid datas={datas} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <EcommercePopularProducts />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <EcommerceOrders />
         </Grid>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={6}>
@@ -100,15 +110,6 @@ const EcommerceDashboard = () => {
               <EcommerceGeneratedLeads />
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <EcommerceEarningReports />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <EcommercePopularProducts />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <EcommerceOrders />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
           <EcommerceTransactions />

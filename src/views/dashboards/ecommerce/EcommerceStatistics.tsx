@@ -70,7 +70,7 @@ const EcommerceStatistics = ({ datas }) => {
     const urunSayisi = datas.length
     const rafSayisi = new Set(datas.map(d => d[1])).size
     const lokasyonSay = new Set(datas.map(d => d[0])).size
-    const toplamUrun = datas.map(d => parseFloat(d[18]) || 0).reduce((d, t) => t + d, 0)
+    const toplamUrun = datas.map(d => parseFloat(d[17]) || 0).reduce((d, t) => t + d, 0)
     data[0].stats = toplamUrun
     data[1].stats = urunSayisi
     data[2].stats = rafSayisi

@@ -104,9 +104,9 @@ const BarChart = ({
   return (
     <Card>
       <CardContent>
-        <Typography variant='h5'>82.5k</Typography>
+        <Typography variant='h5'>{title}</Typography>
         <Typography variant='body2' sx={{ color: 'text.disabled' }}>
-          {title}
+
         </Typography>
 
         {data ? (
