@@ -26,7 +26,23 @@ const users: UserDataType[] = [
     fullName: 'Jane Doe',
     username: 'janedoe',
     email: 'client@vuexy.com'
-  }
+  },
+  {
+    id: 3,
+    role: 'admin',
+    password: 'admin',
+    fullName: 'John Doe',
+    username: 'johndoe',
+    email: 'admin@wp.com'
+  },
+  {
+    id: 4,
+    role: 'client',
+    password: 'client',
+    fullName: 'Jane Doe',
+    username: 'janedoe',
+    email: 'client@wp.com'
+  },
 ]
 
 // ! These two secrets should be in .env file and not in any other file
