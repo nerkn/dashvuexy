@@ -1,9 +1,11 @@
+let getAccessToken = async ()=>{}
+if(false){
 import * as msal from '@azure/msal-node'
 import powerconfig from 'src/configs/powerconfig'
 
 let currentToken: msal.AuthenticationResult | null
 
-const getAccessToken = async function () {
+ getAccessToken = async function () {
   // Create a config variable that store credentials from config.json
   const config = powerconfig
 
@@ -52,4 +54,6 @@ const getAccessToken = async function () {
     return currentToken
   }
 }
+}
+
 export default { getAccessToken: getAccessToken }
