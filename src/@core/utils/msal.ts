@@ -1,4 +1,5 @@
 let getAccessToken = async ()=>{}
+/*
 if(false){
 import * as msal from '@azure/msal-node'
 import powerconfig from 'src/configs/powerconfig'
@@ -55,5 +56,6 @@ let currentToken: msal.AuthenticationResult | null
   }
 }
 }
+*/
 
 export default { getAccessToken: getAccessToken }
