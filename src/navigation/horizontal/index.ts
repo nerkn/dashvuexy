@@ -1,25 +1,36 @@
 // ** Type import
 import { HorizontalNavItemsType } from 'src/@core/layouts/types'
 
+import { useAuth } from 'src/hooks/useAuth'
+
 const disableMenus = true;
 
 const navigation = (): HorizontalNavItemsType => {
+  const auth = useAuth();
+  console.log('auth', auth.user, auth.menus)
+  let childMenu =[
+    { 
+      icon: 'tabler:device-analytics',
+      title: 'Dasher',
+      path: '/dashboards/Dasher'
+    }, 
+    {
+      icon: 'tabler:layout-grid',
+      title: 'PowerBi',
+      path: '/dashboards/PowerBi'
+    }, ]
+
+  if(auth && auth.menus){
+    childMenu = [...childMenu, ...auth.menus.map(m=>({title:m.menuTitle, path:m.url, icon:m.iconClass}))]
+  }
+
   return [
     {
       icon: 'tabler:smart-home',
       title: 'Main Dashboard',
-      children:  [
-        { 
-          icon: 'tabler:device-analytics',
-          title: 'Dasher',
-          path: '/dashboards/Dasher'
-        }, 
-        {
-          icon: 'tabler:layout-grid',
-          title: 'PowerBi',
-          path: '/dashboards/PowerBi'
-        }, 
-      ]
+      children:  childMenu
+        
+      
     },
     {
       icon: 'tabler:layout-grid-add',

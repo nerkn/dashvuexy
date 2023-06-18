@@ -9,6 +9,7 @@ import defaultAuthConfig from 'src/configs/auth'
 
 // ** Types
 import { UserDataType } from 'src/context/types'
+import AutocompleteFixedOptions from 'src/views/forms/form-elements/autocomplete/AutocompleteFixedOptions'
 
 const users: UserDataType[] = [
   {
@@ -54,12 +55,15 @@ const jwtConfig = {
 
 type ResponseType = [number, { [key: string]: any }]
 
-mock.onPost('/jwt/login').reply(request => {
+mock.onPost('/jwt/login').reply(async request => {
   const { email, password } = JSON.parse(request.data)
 
   let error = {
     email: ['Something went wrong']
   }
+
+
+  
 
   const user = users.find(u => u.email === email && u.password === password)
 

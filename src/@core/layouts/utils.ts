@@ -34,7 +34,7 @@ export const hasActiveChild = (item: NavGroup, currentURL: string): boolean => {
   }
 
   for (const child of children) {
-    if ((child as NavGroup).children) {
+    if (child && (child as NavGroup).children) {
       if (hasActiveChild(child, currentURL)) {
         return true
       }

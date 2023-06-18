@@ -11,7 +11,7 @@ import axios from 'axios'
 import authConfig from 'src/configs/auth'
 
 // ** Types
-import { AuthValuesType, LoginParams, ErrCallbackType, UserDataType } from './types'
+import { AuthValuesType, LoginParams, ErrCallbackType, UserDataType, MenuItemType } from './types'
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -20,7 +20,8 @@ const defaultProvider: AuthValuesType = {
   setUser: () => null,
   setLoading: () => Boolean,
   login: () => Promise.resolve(),
-  logout: () => Promise.resolve()
+  logout: () => Promise.resolve(),
+  menu: null
 }
 
 const AuthContext = createContext(defaultProvider)
@@ -32,6 +33,7 @@ type Props = {
 const AuthProvider = ({ children }: Props) => {
   // ** States
   const [user, setUser] = useState<UserDataType | null>(defaultProvider.user)
+  const [menus, setMenus] = useState<MenuItemType | null>(defaultProvider.menu)
   const [loading, setLoading] = useState<boolean>(defaultProvider.loading)
 
   // ** Hooks
@@ -50,6 +52,7 @@ const AuthProvider = ({ children }: Props) => {
           })
           .then(async response => {
             setLoading(false)
+            console.log(response.data)
             setUser({ ...response.data.userData })
           })
           .catch(() => {
@@ -81,6 +84,7 @@ const AuthProvider = ({ children }: Props) => {
         const returnUrl = router.query.returnUrl
 
         setUser({ ...response.data.userData })
+        setMenus(response.data.menu)
         params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
 
         const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
@@ -102,6 +106,7 @@ const AuthProvider = ({ children }: Props) => {
 
   const values = {
     user,
+    menus,
     loading,
     setUser,
     setLoading,
